@@ -1,12 +1,16 @@
 
 const getPerms = (s, b) => {
-  let sortedS = s.split('').sort().join('');
+  let arrayS = s.split('');
+  let sortedS = arrayS.sort().join('');
   let count = 0;
 
   for (var i = 0; i < b.length; i++) {
-    let chars = b.slice(i, i + s.length);
-    if (chars.split('').sort().join('') === sortedS) {
-      count++;
+    //skip chars that are not included in s
+    if (arrayS.includes(b[i])) {
+      let chars = b.slice(i, i + s.length);
+      if (chars.split('').sort().join('') === sortedS) {
+        count++;
+      }
     }
   }
 
